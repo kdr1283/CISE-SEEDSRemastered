@@ -1,53 +1,45 @@
-import React from 'react';
-import "../index.css";
+import React, { Component } from "react"
+import "../App.css"
+import axios from "axios"
+import { Link } from 'react-router-dom';
+import ArticleTable from "./ArticleTable"
 
-export default class ArticleTable extends React.Component {
-    
-    constructor(props){
-      super(props);
-      this.getColumns = this.getColumns.bind(this);
-      this.getRows = this.getRows.bind(this);
-      this.getKeys = this.getKeys.bind(this);
+class ShowArticleList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles:[
+        {}
+      ],
     }
-    
-    getKeys = function() {
-      return Object.keys(this.props.data[0]);
-    }
-    
-    getColumns = function() {
-      var keys = this.getKeys();
-      return keys.map((key, index)=>{
-        return <th key={key}>{key.toUpperCase()}</th>
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:8082/api/articles")
+      .then((res) => {
+        this.setState({
+          articles: res.data,
+        })
       })
-    }
-    
-    getRows = function() {
-      var records = this.props.data;
-      var keys = this.getKeys();
-      return records.map((row, index)=>{
-        return <tr key={index}><RenderRow key={index} data={row} keys={keys}/></tr>
+      .catch((err) => {
+        console.log("Error from ShowArticleList")
       })
-    }
-    
-    render() {
-        return (
-          <div>
-            <table>
-            <thead>
-              <tr>{this.getColumns()}</tr>
-            </thead>
-            <tbody>
-              {this.getRows()}
-            </tbody>
-            </table>
-          </div>
-          
-        );
-    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>SEEDS Research Evidence and Articles Repository</h1>
+        <ArticleTable data={this.state.articles}/>
+      </div>
+    )
+  }
 }
 
-const RenderRow = (props) => {
-  return props.keys.map((key, index)=>{
-    return <td key={props.data[key]}>{props.data[key]}</td>
-  })
-}
+Link.render(
+    <ShowArticleList />, 
+    document.getElementById("App")
+  );
+
+export default ShowArticleList
