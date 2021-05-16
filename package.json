@@ -1,0 +1,31 @@
+{
+  "name": "cise-seedsremastered",
+  "version": "1.0.0",
+  "description": "Remastered version of CISE_SEEDS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdr1283/CISE-SEEDSRemastered.git"
+  },
+  "author": "Rafael Ramos, John Balazo & Jayden Kean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kdr1283/CISE-SEEDSRemastered/issues"
+  },
+  "homepage": "https://github.com/kdr1283/CISE-SEEDSRemastered#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9",
+    "validation": "^0.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
