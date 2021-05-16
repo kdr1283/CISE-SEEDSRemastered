@@ -3,14 +3,14 @@ const path = require('path');
 const express = require('express');
 const connectDB = require('./config/db');
 const articles = require("./routes/api/articles");
-// var cors = require('cors');
+var cors = require('cors');
 
 //Connect database
 connectDB();
 const app = express();
 
 // cors
-// app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -29,6 +29,6 @@ if(process.env.NODE_ENV === 'production') {
     })
 }
 
-const port = process.env.PORT || 8082;
+const port = process.env.PORT;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
