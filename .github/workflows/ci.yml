@@ -46,3 +46,10 @@ jobs:
       - name: Build client-side
         working-directory: ./client
         run: npm run build
+
+      - name: Run client lint
+        working-directory: ./client
+        run: npm run lint
+      
+      - name: Run server lint
+        run: npm run lint
