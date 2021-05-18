@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import "../App.css"
-import axios from "axios"
+/*import axios from "axios"*/
 import { Link } from 'react-router-dom';
-import ArticleTable from "./ArticleTable"
 
-class ShowArticleList extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +13,7 @@ class ShowArticleList extends Component {
     }
   }
 
-  componentDidMount() {
+ /* componentDidMount() {
     axios
       .get("https://team-7-seeds.herokuapp.com/api/articles")
       .then((res) => {
@@ -23,33 +22,23 @@ class ShowArticleList extends Component {
         })
       })
       .catch((err) => {
-        console.log("Error from ShowArticleList")
+        console.log("Error from Home")
       })
-  }
+  }*/
 
   render() {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
-        
-        <label for="SE_Practice">Filter by SE Practice</label>
-        
-        <select name="SE_Practice" id="SE_Practice">
-          <option value = "TDD">TDD</option>
-          <option value = "FDD">FDD</option>
-        </select>
-      
-        <ArticleTable data={this.state.articles}/>
-
-        <Link to="/">Back</Link>
+        <Link to="/Show-Article-List">Show Articles</Link>
       </div>
     )
   }
 }
 
 Link.render(
-    <ShowArticleList />, 
+    <Home/>, 
     document.getElementById("App")
   );
 
-export default ShowArticleList
+export default Home
