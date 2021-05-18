@@ -46,3 +46,6 @@ jobs:
       - name: Build client-side
         working-directory: ./client
         run: npm run build
+      
+      - name: Deploy to Heroku
+        run: git push heroku main
