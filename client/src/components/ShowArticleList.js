@@ -62,6 +62,8 @@ class ShowArticleList extends Component {
         <input type="text" id="myInput" onKeyUp={this.filterSearchByTDD} placeholder='Search for SE Practice...'></input>
         <input type="text" id="myInput" onKeyUp={this.filterSearchByYear} placeholder='Search for year...'></input>
         <ArticleTable data={this.state.articles}/>
+
+        <Link to="/">Back</Link>
       </div>
     )
   }
