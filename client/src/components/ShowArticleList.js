@@ -12,7 +12,35 @@ class ShowArticleList extends Component {
         {}
       ],
     }
+
   }
+
+  filterSearchByTDD(event) {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("articles");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[4];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  filterSearchByYear(event) {
+
+  }
+
 
   componentDidMount() {
     axios
@@ -31,14 +59,8 @@ class ShowArticleList extends Component {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
-        
-        <label for="SE_Practice">Filter by SE Practice</label>
-        
-        <select name="SE_Practice" id="SE_Practice">
-          <option value = "TDD">TDD</option>
-          <option value = "FDD">FDD</option>
-        </select>
-      
+        <input type="text" id="myInput" onKeyUp={this.filterSearchByTDD} placeholder='Search for SE Practice...'></input>
+        <input type="text" id="myInput" onKeyUp={this.filterSearchByYear} placeholder='Search for year...'></input>
         <ArticleTable data={this.state.articles}/>
 
         <Link to="/">Back</Link>

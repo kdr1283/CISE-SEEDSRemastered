@@ -32,7 +32,7 @@ export default class ArticleTable extends React.Component {
     render() {
         return (
           <div>
-            <table>
+            <table id='articles'>
             <thead>
               <tr>{this.getColumns()}</tr>
             </thead>
