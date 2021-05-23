@@ -133,6 +133,7 @@ class ShowArticleList extends Component {
           placeholder="Search by related-claim..."
         />
         <ArticleTable data={this.state.articles} />
+        <Link to="/">Back</Link>
       </div>
     );
   }
