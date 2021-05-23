@@ -1,19 +1,18 @@
-import React, { Component } from "react"
-import "../App.css"
-/*import axios from "axios"*/
-import { Link } from 'react-router-dom';
+/* eslint-disable react/no-unused-state */
+import React, { Component } from "react";
+import "../App.css";
+/* import axios from "axios" */
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles:[
-        {}
-      ],
-    }
+      articles: [{}],
+    };
   }
 
- /* componentDidMount() {
+  /* componentDidMount() {
     axios
       .get("https://team-7-seeds.herokuapp.com/api/articles")
       .then((res) => {
@@ -24,7 +23,7 @@ class Home extends Component {
       .catch((err) => {
         console.log("Error from Home")
       })
-  }*/
+  } */
 
   render() {
     return (
@@ -32,13 +31,10 @@ class Home extends Component {
         <h1>SEEDS Research Evidence and Articles Repository</h1>
         <Link to="/Show-Article-List">Show Articles</Link>
       </div>
-    )
+    );
   }
 }
 
-Link.render(
-    <Home/>, 
-    document.getElementById("App")
-  );
+Link.render(<Home />, document.getElementById("App"));
 
-export default Home
+export default Home;
