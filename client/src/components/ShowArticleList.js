@@ -31,8 +31,9 @@ class ShowArticleList extends Component {
     let td;
     let i;
     let txtValue;
-    const input = document.getElementById("myInput");
+    const input = document.getElementById("mySEPracticeInput");
     const filter = input.value.toUpperCase();
+    console.log(filter);
     const table = document.getElementById("articles");
     const tr = table.getElementsByTagName("tr");
 
@@ -50,19 +51,53 @@ class ShowArticleList extends Component {
     }
   }
 
+  filterSearchByYear() {
+    // Declare variables
+    let td;
+    let i;
+    let txtValue;
+    const input = document.getElementById("myDateInput");
+    const filter = input.value.toUpperCase();
+    const inputDate = new Date(filter);
+    const inputYear = inputDate.getFullYear();
+    // console.log(`Input: ${inputYear}`);
+    const table = document.getElementById("articles");
+    const tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        const articleDate = new Date(txtValue);
+        const articleYear = articleDate.getFullYear();
+        // console.log(`Article date: ${articleYear}`);
+        if (
+          txtValue.toUpperCase().indexOf(filter) > -1 ||
+          articleYear === inputYear
+        ) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
         <input
           type="text"
-          id="myInput"
+          id="mySEPracticeInput"
           onKeyUp={this.filterSearchByTDD}
           placeholder="Search for SE Practice..."
         />
         <input
           type="text"
-          id="myInput"
+          id="myDateInput"
           onKeyUp={this.filterSearchByYear}
           placeholder="Search for year..."
         />
