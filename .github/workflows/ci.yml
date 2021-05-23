@@ -39,6 +39,10 @@ jobs:
         working-directory: ./client
         run: npm install
         
+      - name: Run lint 
+        working-directory: ./client
+        run: npm run lint
+        
       - name: Run the client tests
         working-directory: ./client
         run: npm test
