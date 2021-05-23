@@ -5,6 +5,7 @@ import "./App.css";
 
 import Home from "./components/Home";
 import ShowArticleList from "./components/ShowArticleList";
+import SubmitArticle from "./components/SubmitArticle";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={Home} />
           <Route path="/Show-Article-List" component={ShowArticleList} />
+          <Route path="/Submit-Article" component={SubmitArticle} />
         </div>
       </Router>
     );

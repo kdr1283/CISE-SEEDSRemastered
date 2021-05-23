@@ -30,6 +30,8 @@ class Home extends Component {
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
         <Link to="/Show-Article-List">Show Articles</Link>
+        <br />
+        <Link to="/Submit-Article">Submit an Article</Link>
       </div>
     );
   }
