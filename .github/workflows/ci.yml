@@ -45,4 +45,4 @@ jobs:
 
       - name: Build client-side
         working-directory: ./client
-        run: npm run build
+        run: CI=false npm run build
