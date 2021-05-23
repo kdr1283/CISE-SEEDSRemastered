@@ -54,6 +54,7 @@ class SubmitArticle extends Component {
   render() {
     return (
       <div className="App">
+        <h1>SEEDS Research Evidence and Articles Repository</h1>
         <Link to="/Show-Article-List">Show Article list</Link>
         <br />
         <Link to="/">Back</Link>

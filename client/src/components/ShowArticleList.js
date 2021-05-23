@@ -114,6 +114,8 @@ class ShowArticleList extends Component {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
+        <Link to="/">Back</Link>
+        <br />
         <input
           type="text"
           id="mySEPracticeInput"
@@ -133,7 +135,6 @@ class ShowArticleList extends Component {
           placeholder="Search by related-claim..."
         />
         <ArticleTable data={this.state.articles} />
-        <Link to="/">Back</Link>
       </div>
     );
   }
