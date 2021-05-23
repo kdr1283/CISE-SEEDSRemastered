@@ -26,14 +26,14 @@ class ShowArticleList extends Component {
       });
   }
 
-  filterSearchByTDD() {
+  filterSearchBySEPractice() {
     // Declare variables
     let td;
     let i;
     let txtValue;
     const input = document.getElementById("mySEPracticeInput");
     const filter = input.value.toUpperCase();
-    console.log(filter);
+    // console.log(filter);
     const table = document.getElementById("articles");
     const tr = table.getElementsByTagName("tr");
 
@@ -85,6 +85,31 @@ class ShowArticleList extends Component {
     }
   }
 
+  filterSearchByClaim() {
+    // Declare variables
+    let td;
+    let i;
+    let txtValue;
+    const input = document.getElementById("myClaimInput");
+    const filter = input.value.toUpperCase();
+    // console.log(filter);
+    const table = document.getElementById("articles");
+    const tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[5];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -92,14 +117,20 @@ class ShowArticleList extends Component {
         <input
           type="text"
           id="mySEPracticeInput"
-          onKeyUp={this.filterSearchByTDD}
+          onKeyUp={this.filterSearchBySEPractice}
           placeholder="Search for SE Practice..."
         />
         <input
           type="text"
           id="myDateInput"
           onKeyUp={this.filterSearchByYear}
-          placeholder="Search for year..."
+          placeholder="Search by publication year..."
+        />
+        <input
+          type="text"
+          id="myClaimInput"
+          onKeyUp={this.filterSearchByClaim}
+          placeholder="Search by related-claim..."
         />
         <ArticleTable data={this.state.articles} />
       </div>
