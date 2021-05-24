@@ -55,7 +55,7 @@ class SubmitArticle extends Component {
   render() {
     return (
       <div className="App">
-        <body className="custom-field-body">
+        <body>
           <h1>SEEDS Research Evidence and Articles Repository</h1>
           <form noValidate onSubmit={this.onSubmit}>
             <label>
