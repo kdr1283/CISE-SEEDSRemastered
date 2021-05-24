@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -54,67 +55,98 @@ class SubmitArticle extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SEEDS Research Evidence and Articles Repository</h1>
-        <Link to="/Show-Article-List">Show Article list</Link>
-        <br />
-        <Link to="/">Back</Link>
-        <form noValidate onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="Article title"
-            name="title"
-            value={this.state.title}
-            onChange={this.onChange}
-            required
-          />
+        <body className="custom-field-body">
+          <h1>SEEDS Research Evidence and Articles Repository</h1>
+          <form noValidate onSubmit={this.onSubmit}>
+            <label>
+              Title:
+              <input
+                type="text"
+                placeholder="Article title"
+                name="title"
+                value={this.state.title}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Author(s):
+              <input
+                type="text"
+                placeholder="Article author(s)"
+                name="authors"
+                value={this.state.authors}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Publication date:
+              <input
+                type="date"
+                placeholder="Publication year"
+                name="year"
+                value={this.state.year}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              SE Practice:
+              <input
+                type="text"
+                placeholder="SE practice"
+                name="practice"
+                value={this.state.practice}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Claim:
+              <input
+                type="text"
+                placeholder="Claim"
+                name="claim"
+                value={this.state.claim}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Strength of evidence:
+              <input
+                type="text"
+                placeholder="Enter strength"
+                name="strength"
+                value={this.state.strength}
+                onChange={this.onChange}
+                required
+              />
+            </label>
+            <br />
+            <input type="submit" />
+          </form>
           <br />
-          <input
-            type="text"
-            placeholder="Article author(s)"
-            name="authors"
-            value={this.state.authors}
-            onChange={this.onChange}
-            required
-          />
           <br />
-          <input
-            type="date"
-            placeholder="Publication year"
-            name="year"
-            value={this.state.year}
-            onChange={this.onChange}
-            required
-          />
           <br />
-          <input
-            type="text"
-            placeholder="SE practice"
-            name="practice"
-            value={this.state.practice}
-            onChange={this.onChange}
-            required
-          />
+          <li>
+            <Link className="link-style" to="/Show-Article-List">
+              Show Article list
+            </Link>
+          </li>
           <br />
-          <input
-            type="text"
-            placeholder="Claim"
-            name="claim"
-            value={this.state.claim}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <input
-            type="text"
-            placeholder="Strength"
-            name="strength"
-            value={this.state.strength}
-            onChange={this.onChange}
-            required
-          />
-          <br />
-          <input type="submit" />
-        </form>
+          <li>
+            <Link className="link-style" to="/">
+              Back
+            </Link>
+          </li>
+        </body>
       </div>
     );
   }

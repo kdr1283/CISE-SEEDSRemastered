@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from "react";
-// import "../App.css";
+import "../App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ArticleTable from "./ArticleTable";
@@ -113,28 +113,34 @@ class ShowArticleList extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SEEDS Research Evidence and Articles Repository</h1>
-        <Link to="/">Back</Link>
-        <br />
-        <input
-          type="text"
-          id="mySEPracticeInput"
-          onKeyUp={this.filterSearchBySEPractice}
-          placeholder="Search for SE Practice..."
-        />
-        <input
-          type="text"
-          id="myDateInput"
-          onKeyUp={this.filterSearchByYear}
-          placeholder="Search by publication year..."
-        />
-        <input
-          type="text"
-          id="myClaimInput"
-          onKeyUp={this.filterSearchByClaim}
-          placeholder="Search by related-claim..."
-        />
-        <ArticleTable data={this.state.articles} />
+        <body className="custom-field-body">
+          <h1>SEEDS Research Evidence and Articles Repository</h1>
+          <li>
+            <Link className="link-style" to="/">
+              Back
+            </Link>
+          </li>
+          <br />
+          <input
+            type="text"
+            id="mySEPracticeInput"
+            onKeyUp={this.filterSearchBySEPractice}
+            placeholder="Search for SE Practice"
+          />
+          <input
+            type="text"
+            id="myDateInput"
+            onKeyUp={this.filterSearchByYear}
+            placeholder="Search by publication year"
+          />
+          <input
+            type="text"
+            id="myClaimInput"
+            onKeyUp={this.filterSearchByClaim}
+            placeholder="Search for a related-claim"
+          />
+          <ArticleTable data={this.state.articles} />
+        </body>
       </div>
     );
   }
