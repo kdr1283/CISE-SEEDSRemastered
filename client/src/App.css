@@ -1,5 +1,25 @@
+@font-face {
+  font-family: "Mulish";
+  src: url(./fonts/Mulish/static/Mulish-Regular.ttf);
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url(./fonts/Mulish/static/Mulish-Italic.ttf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Mulish";
+  src: url(./fonts/Mulish/static/Mulish-Bold.ttf);
+  font-weight: bold;
+}
+
 .App {
   text-align: center;
+  font-family: "Mulish";
+  font-style: normal;
 }
 
 .App-logo {
@@ -24,15 +44,36 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.content-table {
+  border-collapse: collapse;
+  margin: 50px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content-table thead tr {
+  background-color: orangered;
+  color: #ffffff;
+  text-align: left;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+} 
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid orangered;
 }

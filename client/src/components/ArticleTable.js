@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 
 import React from "react";
-import "../index.css";
+import "../App.css";
 
 export default class ArticleTable extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ export default class ArticleTable extends React.Component {
   render() {
     return (
       <div>
-        <table id="articles">
+        <table className="content-table" id="articles">
           <thead>
             <tr>{this.getColumns()}</tr>
           </thead>
