@@ -114,25 +114,31 @@ class ShowArticleList extends Component {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
-        <Link to="/">Back</Link>
+        <li>
+          <Link className="link-style" to="/">
+            Back
+          </Link>
+        </li>
+        <br />
+        <br />
         <br />
         <input
           type="text"
           id="mySEPracticeInput"
           onKeyUp={this.filterSearchBySEPractice}
-          placeholder="Search for SE Practice..."
+          placeholder="Search for SE Practice"
         />
         <input
           type="text"
           id="myDateInput"
           onKeyUp={this.filterSearchByYear}
-          placeholder="Search by publication year..."
+          placeholder="Search by publication year"
         />
         <input
           type="text"
           id="myClaimInput"
           onKeyUp={this.filterSearchByClaim}
-          placeholder="Search by related-claim..."
+          placeholder="Search for a related-claim"
         />
         <ArticleTable data={this.state.articles} />
       </div>
