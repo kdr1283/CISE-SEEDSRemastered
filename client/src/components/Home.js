@@ -28,20 +28,18 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <body className="AppBody">
-          <h1>SEEDS Research Evidence and Articles Repository</h1>
-          <h2>Team 7</h2>
-          <li>
-            <Link className="link-style" to="/Show-Article-List">
-              Show Articles
-            </Link>
-          </li>
-          <li>
-            <Link className="link-style" to="/Submit-Article">
-              Submit an Article
-            </Link>
-          </li>
-        </body>
+        <h1>SEEDS Research Evidence and Articles Repository</h1>
+        <h2>Team 7</h2>
+        <li>
+          <Link className="link-style" to="/Show-Article-List">
+            Show Articles
+          </Link>
+        </li>
+        <li>
+          <Link className="link-style" to="/Submit-Article">
+            Submit an Article
+          </Link>
+        </li>
       </div>
     );
   }
