@@ -134,17 +134,19 @@ class SubmitArticle extends Component {
         <br />
         <br />
         <br />
-        <li>
-          <Link className="link-style" to="/Show-Article-List">
-            Show Article list
-          </Link>
-        </li>
-        <br />
-        <li>
-          <Link className="link-style" to="/">
-            Back
-          </Link>
-        </li>
+        <div className="link-style-container">
+          <li>
+            <Link className="link-style" to="/Show-Article-List">
+              Show Article list
+            </Link>
+          </li>
+          <br />
+          <li>
+            <Link className="link-style" to="/">
+              Back
+            </Link>
+          </li>
+        </div>
       </div>
     );
   }

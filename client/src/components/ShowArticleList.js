@@ -122,11 +122,13 @@ class ShowArticleList extends Component {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
-        <li>
-          <Link className="link-style" to="/">
-            Back
-          </Link>
-        </li>
+        <div className="link-style-container">
+          <li>
+            <Link className="link-style" to="/">
+              Back
+            </Link>
+          </li>
+        </div>
         <br />
         <br />
         <br />
