@@ -5,6 +5,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import ArticleTable from "./ArticleTable";
 
+export const API = "https://team-7-seeds.herokuapp.com/api";
+export const fetchData = async (query) => {
+  const url = `${API}/${query}`;
+
+  // eslint-disable-next-line no-return-await
+  return await axios.get(url);
+};
+
 class ShowArticleList extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +23,7 @@ class ShowArticleList extends Component {
 
   componentDidMount() {
     axios
-      .get("https://team-7-seeds.herokuapp.com/api/articles")
+      .get(`${API}/articles`)
       .then((res) => {
         this.setState({
           articles: res.data,
@@ -114,11 +122,13 @@ class ShowArticleList extends Component {
     return (
       <div className="App">
         <h1>SEEDS Research Evidence and Articles Repository</h1>
-        <li>
-          <Link className="link-style" to="/">
-            Back
-          </Link>
-        </li>
+        <div className="link-style-container">
+          <li>
+            <Link className="link-style" to="/">
+              Back
+            </Link>
+          </li>
+        </div>
         <br />
         <br />
         <br />

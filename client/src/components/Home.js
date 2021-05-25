@@ -28,7 +28,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <body className="AppBody">
+        <div className="link-style-container">
           <h1>SEEDS Research Evidence and Articles Repository</h1>
           <h2>Team 7</h2>
           <li>
@@ -41,7 +41,7 @@ class Home extends Component {
               Submit an Article
             </Link>
           </li>
-        </body>
+        </div>
       </div>
     );
   }
