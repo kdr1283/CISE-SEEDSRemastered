@@ -35,7 +35,7 @@ jobs:
       - name: Install api dependencies
         run: npm install
         
-      - name: Install api dependencies
+      - name: Run the api tests
         run: npm test
         
       - name: Install client dependencies
