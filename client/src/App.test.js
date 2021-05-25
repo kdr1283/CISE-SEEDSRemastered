@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router } from "react-router-dom";
-import ShowArticleList from "./components/ShowArticleList";
+// import ShowArticleList from "./components/ShowArticleList";
 import App from "./App";
 import Home from "./components/Home";
 import ArticleTable from "./components/ArticleTable";
