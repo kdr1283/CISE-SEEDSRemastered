@@ -4,7 +4,7 @@
   "description": "Remastered version of CISE_SEEDS",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest test/app.test.js",
     "start": "nodemon app.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && CI=false npm run build --prefix client"
   },
@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "jest": "^26.6.0",
     "mongoose": "^5.12.9",
     "validation": "^0.0.1"
   },
