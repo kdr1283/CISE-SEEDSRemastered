@@ -48,7 +48,7 @@ describe("Article Model Test", () => {
       title: "test title",
       authors: "test author",
       year: "2008",
-      practice: "TDD",
+      practice: "FDD",
       claim: "Improve Code Quality",
       strength: "Strong",
       doi: "10.1/100"
