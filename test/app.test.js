@@ -1,5 +1,6 @@
+require('dotenv').config({ path: "./config.env"});
 const mongoose = require("mongoose");
-
+const db = process.env.MONGO_URI;
 const Article = require("../models/Article");
 
 const articleData = {
@@ -17,15 +18,20 @@ test("adds 2 + 2 to equal 4", () => {
 
 describe("Article Model Test", () => {
     beforeAll(async () => {
-      await mongoose.connect(
-        process.env.MONGO_URI,
-        { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true },
-        (err) => {
-          if (err) {
-            console.error(err);
-            process.exit(1);
-          }
-        }
-      );
+      await mongoose.connect(db, { 
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true
+      });
     });
+
+    test("adds 3 + 3 to equal 6, if this test passes then successful connection to MongoDB", () => {
+      expect(3 + 3).toBe(6);
+    })
+
+    afterAll(async done => {
+      mongoose.disconnect();
+      done();
+    })
   });
