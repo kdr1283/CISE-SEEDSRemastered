@@ -61,7 +61,7 @@ class SubmitArticle extends Component {
             Title:
             <input
               type="text"
-              placeholder="Article title"
+              placeholder="Enter title"
               name="title"
               value={this.state.title}
               onChange={this.onChange}
@@ -73,7 +73,7 @@ class SubmitArticle extends Component {
             Author(s):
             <input
               type="text"
-              placeholder="Article author(s)"
+              placeholder="Enter author(s)"
               name="authors"
               value={this.state.authors}
               onChange={this.onChange}
@@ -85,7 +85,7 @@ class SubmitArticle extends Component {
             Publication date:
             <input
               type="date"
-              placeholder="Publication year"
+              placeholder="Enter year"
               name="year"
               value={this.state.year}
               onChange={this.onChange}
@@ -97,7 +97,7 @@ class SubmitArticle extends Component {
             SE Practice:
             <input
               type="text"
-              placeholder="SE practice"
+              placeholder="e.g TDD, FDD"
               name="practice"
               value={this.state.practice}
               onChange={this.onChange}
@@ -109,7 +109,7 @@ class SubmitArticle extends Component {
             Claim:
             <input
               type="text"
-              placeholder="Claim"
+              placeholder="e.g Improve Code Quality"
               name="claim"
               value={this.state.claim}
               onChange={this.onChange}
@@ -121,7 +121,7 @@ class SubmitArticle extends Component {
             Strength of evidence:
             <input
               type="text"
-              placeholder="Enter strength"
+              placeholder="e.g Strong, Medium, Weak"
               name="strength"
               value={this.state.strength}
               onChange={this.onChange}
