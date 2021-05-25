@@ -8,8 +8,8 @@ const articleData = {
   authors: "test author",
   year: "2008",
   practice: "TDD",
-  claim: "Improve Code Quaity",
-  strength: "Strong",
+  claim: "Improve Code Quality",
+  strength: "Strong"
 };
 
 test("adds 2 + 2 to equal 4", () => {
@@ -30,6 +30,35 @@ describe("Article Model Test", () => {
       expect(3 + 3).toBe(6);
     })
 
+    it("submit article successfully", async () => {
+      const exampleArticle = new Article(articleData);
+      const savedArticle = await exampleArticle.save();
+      // Object Id should be defined when successfully saved to MongoDB.
+      expect(savedArticle._id).toBeDefined();
+      expect(savedArticle.title).toBe(exampleArticle.title);
+      expect(savedArticle.authors).toBe(exampleArticle.authors);
+      expect(savedArticle.year).toBe(exampleArticle.year);
+      expect(savedArticle.practice).toBe(exampleArticle.practice);
+      expect(savedArticle.claim).toBe(exampleArticle.claim);
+      expect(savedArticle.strength).toBe(exampleArticle.strength);
+    });
+
+    it('submit article successfully, but the field not defined in article schema should be undefined', async () => {
+      const exampleArticleWithInvalidField = new Article({ 
+      title: "test title",
+      authors: "test author",
+      year: "2008",
+      practice: "TDD",
+      claim: "Improve Code Quality",
+      strength: "Strong",
+      doi: "10.1/100"
+      });
+
+      const savedArticleWithInvalidField = await exampleArticleWithInvalidField.save();
+      expect(savedArticleWithInvalidField._id).toBeDefined();
+      expect(savedArticleWithInvalidField.doi).toBeUndefined();
+    }); 
+    
     afterAll(async done => {
       mongoose.disconnect();
       done();
