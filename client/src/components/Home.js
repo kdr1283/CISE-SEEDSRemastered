@@ -28,9 +28,9 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
+        <h1>SEEDS Research Evidence and Articles Repository</h1>
+        <h2>Team 7</h2>
         <div className="link-style-container">
-          <h1>SEEDS Research Evidence and Articles Repository</h1>
-          <h2>Team 7</h2>
           <li>
             <Link className="link-style" to="/Show-Article-List">
               Show Articles

@@ -131,9 +131,6 @@ class SubmitArticle extends Component {
           <br />
           <input type="submit" />
         </form>
-        <br />
-        <br />
-        <br />
         <div className="link-style-container">
           <li>
             <Link className="link-style" to="/Show-Article-List">

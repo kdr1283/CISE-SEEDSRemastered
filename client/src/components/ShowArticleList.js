@@ -132,24 +132,33 @@ class ShowArticleList extends Component {
         <br />
         <br />
         <br />
-        <input
-          type="text"
-          id="mySEPracticeInput"
-          onKeyUp={this.filterSearchBySEPractice}
-          placeholder="Search for SE Practice"
-        />
-        <input
-          type="text"
-          id="myDateInput"
-          onKeyUp={this.filterSearchByYear}
-          placeholder="Search by publication year"
-        />
-        <input
-          type="text"
-          id="myClaimInput"
-          onKeyUp={this.filterSearchByClaim}
-          placeholder="Search for a related-claim"
-        />
+        <label htmlFor="mySEPracticeInput">
+          Filter by SE Practice:
+          <input
+            type="text"
+            id="mySEPracticeInput"
+            onKeyUp={this.filterSearchBySEPractice}
+            placeholder="Search for SE Practice"
+          />
+        </label>
+        <label htmlFor="myDateInput">
+          Filter by publication year:
+          <input
+            type="text"
+            id="myDateInput"
+            onKeyUp={this.filterSearchByYear}
+            placeholder="Search by publication year"
+          />
+        </label>
+        <label htmlFor="myClaimInput">
+          Filter by related-claim:
+          <input
+            type="text"
+            id="myClaimInput"
+            onKeyUp={this.filterSearchByClaim}
+            placeholder="Search for a related-claim"
+          />
+        </label>
         <ArticleTable data={this.state.articles} />
       </div>
     );
