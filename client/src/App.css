@@ -116,3 +116,53 @@ li a {
 .content-table tbody tr:last-of-type {
   border-bottom: 2px solid orangered;
 }
+
+label {
+  display: inline-block;
+  text-align: left;
+  width: 400px;
+  margin-top: 5px;
+}
+
+input {
+  font-family: "Mulish";
+  font-style: normal;
+}
+
+input[type=text] {
+  width: 400px;
+  padding: 10px 15px;
+  margin-left: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+input[type=date] {
+  width: 400px;
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /*display: flex;
+  flex-flow: row wrap;
+  align-items: center;*/
+}
+
+input[type=submit] {
+  width: 400px;
+  padding: 10px 15px;
+  margin: 10px 0;
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(220, 60, 5);
+}

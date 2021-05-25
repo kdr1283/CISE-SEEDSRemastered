@@ -71,7 +71,7 @@ class SubmitArticle extends Component {
             </label>
             <br />
             <label>
-              Author(s):
+              Author(s): 
               <input
                 type="text"
                 placeholder="Article author(s)"
@@ -83,7 +83,7 @@ class SubmitArticle extends Component {
             </label>
             <br />
             <label>
-              Publication date:
+              Publication date: 
               <input
                 type="date"
                 placeholder="Publication year"
@@ -95,7 +95,7 @@ class SubmitArticle extends Component {
             </label>
             <br />
             <label>
-              SE Practice:
+              SE Practice: 
               <input
                 type="text"
                 placeholder="SE practice"
@@ -107,7 +107,7 @@ class SubmitArticle extends Component {
             </label>
             <br />
             <label>
-              Claim:
+              Claim: 
               <input
                 type="text"
                 placeholder="Claim"
@@ -119,7 +119,7 @@ class SubmitArticle extends Component {
             </label>
             <br />
             <label>
-              Strength of evidence:
+              Strength of evidence: 
               <input
                 type="text"
                 placeholder="Enter strength"
@@ -132,9 +132,6 @@ class SubmitArticle extends Component {
             <br />
             <input type="submit" />
           </form>
-          <br />
-          <br />
-          <br />
           <li>
             <Link className="link-style" to="/Show-Article-List">
               Show Article list
