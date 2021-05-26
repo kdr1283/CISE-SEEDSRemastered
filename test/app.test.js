@@ -4,11 +4,11 @@ const db = process.env.MONGO_URI;
 const Article = require("../models/Article");
 
 const articleData = {
-  title: "test title",
-  authors: "test author",
-  year: "2008",
+  title: "An experimental evaluation of test driven development vs. test-last development with industry professionals.",
+  authors: "Munir, Hussan and Wnuk, Krzysztof and Petersen, Kai and Moayyed, Misagh",
+  year: "2014",
   practice: "TDD",
-  claim: "Improve Code Quality",
+  claim: "Improve Team Confidence and Satisfication",
   strength: "Strong"
 };
 
@@ -26,13 +26,16 @@ describe("Article Model Test", () => {
       });
     });
 
-    test("adds 3 + 3 to equal 6, if this test passes then successful connection to MongoDB", () => {
-      expect(3 + 3).toBe(6);
-    })
+    it("tests article record has the field '_id' with the type ObjectID", async () => {
+      const exampleArticle = new Article(articleData);
+
+      expect(exampleArticle._id instanceof mongoose.Types.ObjectId).toBe(true);
+    });
 
     it("submit article successfully", async () => {
       const exampleArticle = new Article(articleData);
       const savedArticle = await exampleArticle.save();
+      const id = savedArticle._id;
       // Object Id should be defined when successfully saved to MongoDB.
       expect(savedArticle._id).toBeDefined();
       expect(savedArticle.title).toBe(exampleArticle.title);
@@ -45,13 +48,13 @@ describe("Article Model Test", () => {
 
     it('submit article successfully, but the field not defined in article schema should be undefined', async () => {
       const exampleArticleWithInvalidField = new Article({ 
-      title: "test title",
-      authors: "test author",
-      year: "2008",
-      practice: "FDD",
-      claim: "Improve Code Quality",
+      title: "An experimental evaluation of test driven development vs. test-last development with industry professionals.",
+      authors: "Munir, Hussan and Wnuk, Krzysztof and Petersen, Kai and Moayyed, Misagh",
+      year: "2014",
+      practice: "TDD",
+      claim: "Improve Team Confidence and Satisfication",
       strength: "Strong",
-      doi: "10.1/100"
+      doi: "10.1/100" // the invalid field
       });
 
       const savedArticleWithInvalidField = await exampleArticleWithInvalidField.save();
