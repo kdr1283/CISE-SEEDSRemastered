@@ -93,6 +93,44 @@ class ShowArticleList extends Component {
     }
   }
 
+  filterSearchByYearRange() {
+    // Declare variables
+    let td;
+    let i;
+    let txtValue;
+    const input = document.getElementById("myDateRangeInput");
+    const filter = input.value.toUpperCase();
+    const years = input.value.split("-");
+    const minDate = new Date(years[0]);
+    const minYear = minDate.getFullYear();
+    const maxDate = new Date(years[1]);
+    const maxYear = maxDate.getFullYear();
+    console.log(`min year: ${minYear}`);
+    console.log(`max year: ${maxYear}`);
+    const table = document.getElementById("articles");
+    const tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        const articleDate = new Date(txtValue);
+        const articleYear = articleDate.getFullYear();
+        console.log(`Article year: ${articleYear}`);
+        if (
+          txtValue.toUpperCase().indexOf(filter) > -1 ||
+          (articleYear >= minYear && articleYear <= maxYear)
+        ) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
   filterSearchByClaim() {
     // Declare variables
     let td;
@@ -138,7 +176,7 @@ class ShowArticleList extends Component {
             type="text"
             id="mySEPracticeInput"
             onKeyUp={this.filterSearchBySEPractice}
-            placeholder="Search for SE Practice"
+            placeholder="e.g TDD, FDD"
           />
         </label>
         <label htmlFor="myDateInput">
@@ -147,7 +185,16 @@ class ShowArticleList extends Component {
             type="text"
             id="myDateInput"
             onKeyUp={this.filterSearchByYear}
-            placeholder="Search by publication year"
+            placeholder="e.g 2008"
+          />
+        </label>
+        <label htmlFor="myDateRangeInput">
+          Filter by year range (minYear-maxYear):
+          <input
+            type="text"
+            id="myDateRangeInput"
+            onKeyUp={this.filterSearchByYearRange}
+            placeholder="e.g 2001-2018"
           />
         </label>
         <label htmlFor="myClaimInput">
@@ -156,7 +203,7 @@ class ShowArticleList extends Component {
             type="text"
             id="myClaimInput"
             onKeyUp={this.filterSearchByClaim}
-            placeholder="Search for a related-claim"
+            placeholder="e.g Improve Code Quality"
           />
         </label>
         <ArticleTable data={this.state.articles} />
